@@ -1,0 +1,18 @@
+.head {
+  grid-area: head;
+  height: 100px; 
+  display: flex;
+  background-color: #170b38;
+  
+}
+.logo {
+  height: 100px;
+}
+.logoName{
+  flex-wrap: wrap;
+  align-self: center;
+  color: white;
+  font-size: 25px;
+  display: inline;
+  /*line-height: 0px;*/
+}

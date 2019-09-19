@@ -1,0 +1,20 @@
+.PageInfo {
+  margin: 10px;
+  width: 550px;
+}
+.PageTop {
+  display: flex;
+  justify-content: space-between;
+}
+.PageInfo div {
+  margin: 5px 0px;
+}
+
+.BirdthDate {
+  display: flex;
+  justify-content: space-between;
+}
+.BirdthCity {
+  display: flex;
+  justify-content: space-between;
+}
