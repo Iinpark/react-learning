@@ -12,13 +12,11 @@ const Sidebar = () => {
           </NavLink>
         </li>
         <li>
-
           <NavLink to="/Posts" activeClassName={classes.a}>
             Posts
           </NavLink>
         </li>
         <li>
-
           <NavLink to="/Dialogs" activeClassName={classes.a}>
             Dialogs
           </NavLink>

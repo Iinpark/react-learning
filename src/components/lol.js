@@ -1,3 +1,3 @@
-var arr = '1234';
-var ans = arr.split('');
-console.log(ans);
+let id = Math.floor(Math.random() * 10) ;
+
+console.log(id);

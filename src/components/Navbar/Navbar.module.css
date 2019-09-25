@@ -1,0 +1,36 @@
+.navigation {
+  background-color: grey;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+
+.darkBlack {
+  line-height: 100%;
+  background-color: #4e514e;
+  height: 150px;
+  width: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.cleanBlack {
+  background-color: #545654;
+  height: 150px;
+  width: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navIcon {
+  display: block;
+}
+.navIcon span {
+  display: block;
+}
+.navIcon em {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
