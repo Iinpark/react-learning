@@ -6,13 +6,13 @@ import Footer from "./components/Footer/footer";
 import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter } from "react-router-dom";
 
-function App() {
+function App(props) {
   return (
-    <div className="wrapper">
+      <div className="wrapper">
       <BrowserRouter>
         <Header />
         <Navbar />
-        <Content />
+        <Content UsersBase={props.UsersBase} MessagesBase={props.MessagesBase}/>
         <Footer />
       </BrowserRouter>
     </div>

@@ -1,9 +1,9 @@
 import React from "react";
 import classes from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
-import PageInfo from "../PageInfo/PageInfo";
-import Posts from "../posts/Posts";
-import Dialogs from "../Dialogs/Dialogs";
+import PageInfo from "../Content/PageInfo/PageInfo";
+import Posts from "../Content/posts/Posts";
+import Dialogs from "../Content/Dialogs/Dialogs";
 import Container from "react-bootstrap/Container";
 
 const Navbar = () => (
