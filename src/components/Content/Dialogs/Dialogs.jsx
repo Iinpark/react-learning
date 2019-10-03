@@ -14,10 +14,10 @@ const Dialogs = props => {
     let DialogsElements = props.UsersBase.map(dialog => (
         <DialogItem name={dialog.user} id={dialog.id} />
     ));
-
     let MessagesElements = props.MessagesBase.map(UD => (
         <Message message={UD.message} id={UD.id}/>
-    ));
+    )); // извлекаем данные из датабазы и закадываем в пропсы
+
 
   return (
     <div className={styles.wrapper}>

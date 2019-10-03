@@ -12,7 +12,7 @@ function App(props) {
       <BrowserRouter>
         <Header />
         <Navbar />
-        <Content UsersBase={props.UsersBase} MessagesBase={props.MessagesBase}/>
+        <Content UsersBase={props.State.UsersBase} MessagesBase={props.State.MessagesBase} PostsBase={props.State.PostsBase} CreateNewPost={props.CreateNewPost} />
         <Footer />
       </BrowserRouter>
     </div>

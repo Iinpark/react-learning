@@ -1,32 +1,32 @@
 import React from "react";
 import classes from "./post.module.css";
 
-const Post = () => {
+
+const Post = (props) => {
   return (
     <div className={classes.post}>
       <div className={classes.postHeader}>
-        <img
-          src="https://www.capitalbuyback.com/img/customers.png"
-          alt="Nikola Tesla"
+          {/*avatar*/}
+               <img
+          src={props.avatar}
+          alt={props.user}
           className={classes.profile}
         />
 
+          {/*autor's name*/}
         <a
           className={classes.autor}
+
           href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D1%81%D0%BB%D0%B0,_%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0"
         >
           Nikola Tesla
         </a>
       </div>
+     {/*post's text*/}
       <div className={classes.PostContent}>
-        Эта статья показывает, как работает эта сравнительно новая технология,
-        именно работает, а не только описание свойств с поверхностными
-        примерами.Эта статья показывает, как работает эта сравнительно новая
-        технология, именно работает, а не только описание свойств с
-        поверхностными примерами. Эта статья показывает, как работает эта
-        сравнительно новая технология, именно работает, а не только описание
-        свойств с поверхностными примерами.
+          {props.content}
       </div>
+      {/* like/dislike buttons*/}
       <div className={classes.feedback}>
         <div className={classes.likeBtn}>
           <svg
@@ -49,8 +49,7 @@ const Post = () => {
             <g>
               <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path>
               <path d="M0 0h24v24H0z" fill="none"></path>
-            </g>
-          </svg>
+            </g></svg>
         </div>
         <span>4</span>
       </div>

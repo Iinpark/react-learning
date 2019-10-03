@@ -5,6 +5,8 @@ import Dialogs from "./Dialogs/Dialogs";
 import { Route } from "react-router-dom";
 import Posts from "./posts/Posts";
 
+
+
 const Content = props => {
   return (
     <div className={classes.cont}>
@@ -18,7 +20,7 @@ const Content = props => {
           />
         )}
       />
-      <Route path="/Feed" render={() => <Posts />} />
+      <Route path="/Feed" render={() => <Posts PostsBase={props.PostsBase} UsersBase={props.UsersBase} CreateNewPost={props.CreateNewPost}/>} />
     </div>
   );
 };
