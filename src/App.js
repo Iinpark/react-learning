@@ -8,11 +8,16 @@ import { BrowserRouter } from "react-router-dom";
 
 function App(props) {
   return (
-      <div className="wrapper">
+    <div className="wrapper">
       <BrowserRouter>
         <Header />
         <Navbar />
-        <Content UsersBase={props.State.UsersBase} MessagesBase={props.State.MessagesBase} PostsBase={props.State.PostsBase} CreateNewPost={props.CreateNewPost} />
+        <Content
+          dispatch={props.Store.dispatch}
+          State={props.Store.getState()}
+
+          GetNewPostContent={props.GetNewPostContent}
+        />
         <Footer />
       </BrowserRouter>
     </div>

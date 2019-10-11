@@ -1,8 +1,7 @@
 import React from "react";
 import Post from "./post";
 import styles from "./Posts.module.css";
-import {AllTreeRerender} from "../../../index"
-import DialogItem from "../Dialogs/DialogItem";
+import {  CREATE_NEW_POST} from "../../../Redux/State/Store";
 
 const Posts = props => {
   // вытаскиваем посты из пропсов и отрисовываем
@@ -15,11 +14,15 @@ const Posts = props => {
   ));
 
   let PostTextArea = React.createRef();
-
   let NewPost = () => {
-    let text = PostTextArea.current.value;
-    props.CreateNewPost(text);
-    PostTextArea.current.value = "";
+    let text = PostTextArea.current.value; //считываем данные из текстареи
+
+    if (text == "") {
+      alert("Вы не ввели текст");
+    } else {
+      props.dispatch(CREATE_NEW_POST(text));
+      PostTextArea.current.value = "";
+    }
   };
 
   return (
