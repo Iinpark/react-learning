@@ -1,12 +1,11 @@
 import React from "react";
 import Post from "./post";
 import styles from "./Posts.module.css";
-import {AllTreeRerender} from "../../../index"
-import DialogItem from "../Dialogs/DialogItem";
+import {postInputing} from "../../../Redux/State/State";
 
 const Posts = props => {
   // вытаскиваем посты из пропсов и отрисовываем
-  let PostsElements = props.PostsBase.map(PostsBase => (
+  let PostsElements = props.posts.PostsBase.map(PostsBase => (
     <Post
       avatar={PostsBase.PostAvatar}
       user={PostsBase.PostAutor}
@@ -16,21 +15,29 @@ const Posts = props => {
 
   let PostTextArea = React.createRef();
 
+  let onPostInput = ()=> {
+      let newPostContent = PostTextArea.current.value;
+      let action = postInputing(newPostContent);
+      props.dispatch(action);
+    }
+
   let NewPost = () => {
     let text = PostTextArea.current.value;
-    props.CreateNewPost(text);
     PostTextArea.current.value = "";
+    props.dispatch();
   };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.PostsWrapper}>
-        <div className="row align-content-center">
+          <div className="row align-content-center ">
           <textarea
-            className="form-control"
-            className={styles.textarea}
-            aria-label="With textarea"
-            ref={PostTextArea}
+              className="form-control"
+              className={styles.textarea}
+              aria-label="With textarea"
+              ref={PostTextArea}
+              value={props.posts.newPostContent}
+              onChange={onPostInput}
           ></textarea>
 
           <div className="row align-content-center m-0">

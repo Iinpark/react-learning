@@ -13,10 +13,10 @@ function App(props) {
         <Header />
         <Navbar />
         <Content
-          UsersBase={props.State.UsersBase}
-          MessagesBase={props.State.MessagesBase}
-          PostsBase={props.State.PostsBase}
-          CreateNewPost={props.CreateNewPost}
+          UsersBase={props.state.UsersBase}
+          messages={props.state.messages}
+          posts={props.state.posts}
+          dispatch={props.dispatch}
         />
         <Footer />
       </BrowserRouter>
