@@ -19,13 +19,14 @@ let store = {
 
   dispatch(action) {
     switch (action.type) {
-      case "ADD_POST":
+      case ADD_POST:
         let NewPost = {
           PostAvatar: this._state.UsersBase[0].avatar,
           PostAuthor: this._state.UsersBase[0].user,
           PostContent: this._state.posts.newPostContent
         };
-        this._state.PostsBase.push(NewPost);
+        this._state.posts.PostsBase.push(NewPost);
+        this._state.posts.newPostContent =""
         this.pageUpdate(this._state);
         break;
       case WHILE_POST_INPUTING:
@@ -34,7 +35,7 @@ let store = {
         break;
       default:
         alert("Зовите программиста, что-то пошло не так");
-      // case "ADD_MESSAGE":
+
     }
   },
   _state: {
@@ -134,12 +135,14 @@ let store = {
 
 //for IntelliSense
 const WHILE_POST_INPUTING = "WHILE_POST_INPUTING";
+const ADD_POST = "ADD_POST";
 
 //action creators
 export const postInputing = vnewContent => ({
   type: WHILE_POST_INPUTING,
   newContent: vnewContent
 });
+export const addPost = () => ({type: ADD_POST})
 
 export default store;
 window.store = store;

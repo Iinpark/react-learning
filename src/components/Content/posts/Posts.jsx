@@ -1,7 +1,7 @@
 import React from "react";
 import Post from "./post";
 import styles from "./Posts.module.css";
-import {postInputing} from "../../../Redux/State/State";
+import {addPost, postInputing} from "../../../Redux/State/State";
 
 const Posts = props => {
   // вытаскиваем посты из пропсов и отрисовываем
@@ -22,9 +22,8 @@ const Posts = props => {
     }
 
   let NewPost = () => {
-    let text = PostTextArea.current.value;
-    PostTextArea.current.value = "";
-    props.dispatch();
+      let action = addPost()
+    props.dispatch(action);
   };
 
   return (
