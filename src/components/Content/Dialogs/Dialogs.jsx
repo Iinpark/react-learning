@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import DialogItem from "./DialogItem";
 import Message from "./Message";
-import {addMessage, messageInputing, postInputing} from "../../../Redux/State/State";
+import {addMessage, messageInputting, postInputting} from "../../../Redux/State/State";
 
 const Dialogs = props => {
 
@@ -20,7 +20,7 @@ const newMessage = () =>{
 
 let onMessageInput = (e) =>{
     let body = e.target.value;
-    props.dispatch(messageInputing(body));
+    props.dispatch(messageInputting(body));
 };
   return (
     <div>

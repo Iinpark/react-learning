@@ -1,3 +1,6 @@
+import PostsReducer from "../PostsReducer";
+import MessagesReducer from "../MessagesReducer";
+
 let store = {
   /* User ID randomiser
    * will work wery soon
@@ -16,37 +19,9 @@ let store = {
   },
 
   dispatch(action) {
-    switch (action.type) {
-      case ADD_POST:
-        let NewPost = {
-          PostAvatar: this._state.UsersBase[0].avatar,
-          PostAuthor: this._state.UsersBase[0].user,
-          PostContent: this._state.posts.newPostContent
-        };
-        this._state.posts.PostsBase.push(NewPost);
-        this._state.posts.newPostContent = "";
-        this.pageUpdate(this._state);
-        break;
-      case WHILE_POST_INPUTING:
-        this._state.posts.newPostContent = action.newContent;
-        this.pageUpdate(this._state);
-        break;
-      case WHILE_MESSAGE_INPUTING:
-        this._state.messages.newMessageContent = action.newContent;
-        this.pageUpdate(this._state);
-        break;
-      case ADD_MESSAGE:
-        let newMessage = {
-          message: this._state.messages.newMessageContent,
-          id: this.getRandomId()
-        };
-        this._state.messages.MessagesBase.push(newMessage);
-        this._state.messages.newMessageContent = "";
-        this.pageUpdate(this._state);
-        break;
-      default:
-        alert("Зовите программиста, что-то пошло не так");
-    }
+   this._state = PostsReducer(this._state,action);
+    this._state = MessagesReducer(this._state,action);
+    this.pageUpdate(this._state);
   },
   _state: {
     posts: {
@@ -144,18 +119,18 @@ let store = {
 };
 
 //for IntelliSense
-const WHILE_POST_INPUTING = "WHILE_POST_INPUTING";
-const WHILE_MESSAGE_INPUTING = "WHILE_MESSAGE_INPUTING";
+const WHILE_POST_INPUTTING = "WHILE_POST_INPUTTING";
 const ADD_POST = "ADD_POST";
+const WHILE_MESSAGE_INPUTTING = "WHILE_MESSAGE_INPUTTING";
 const ADD_MESSAGE = "ADD_MESSAGE";
 
 //action creators
-export const postInputing = newPostInput => ({
-  type: WHILE_POST_INPUTING,
+export const postInputting = newPostInput => ({
+  type: WHILE_POST_INPUTTING,
   newContent: newPostInput
 });
-export const messageInputing = newMessageInput => ({
-  type: WHILE_MESSAGE_INPUTING,
+export const messageInputting = newMessageInput => ({
+  type: WHILE_MESSAGE_INPUTTING,
   newContent: newMessageInput
 });
 
