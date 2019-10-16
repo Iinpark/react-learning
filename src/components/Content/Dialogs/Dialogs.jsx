@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import DialogItem from "./DialogItem";
 import Message from "./Message";
+import {addMessage, messageInputing, postInputing} from "../../../Redux/State/State";
 
 const Dialogs = props => {
 
@@ -12,8 +13,15 @@ const Dialogs = props => {
     <Message message={UD.message} id={UD.id} />
   )); //извлекаем данные из пропсов, закидываем в <Message> и <DialogItem>
 
-    let state = props.store
+const newMessage = () =>{
+    let action = addMessage();
+    props.dispatch(action)
+}
 
+let onMessageInput = (e) =>{
+    let body = e.target.value;
+    props.dispatch(messageInputing(body));
+};
   return (
     <div>
       <div className={styles.wrapper}>
@@ -24,10 +32,12 @@ const Dialogs = props => {
         <textarea
             className="form-control"
             aria-label="With textarea"
+            value={props.messages.newMessageContent}
+            onChange={onMessageInput}
         ></textarea>
         <div className="row align-content-center m-0">
             <div className="col">
-                <button className="btn btn-primary">Добавить</button>
+                <button className="btn btn-primary" onClick={newMessage}>Добавить</button>
             </div>
         </div>
     </div>

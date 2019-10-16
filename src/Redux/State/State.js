@@ -10,9 +10,7 @@ let store = {
     return this._state;
   },
 
-  pageUpdate() {
-
-  },
+  pageUpdate() {},
   subscribe(observer) {
     this.pageUpdate = observer;
   },
@@ -26,16 +24,28 @@ let store = {
           PostContent: this._state.posts.newPostContent
         };
         this._state.posts.PostsBase.push(NewPost);
-        this._state.posts.newPostContent =""
+        this._state.posts.newPostContent = "";
         this.pageUpdate(this._state);
         break;
       case WHILE_POST_INPUTING:
         this._state.posts.newPostContent = action.newContent;
-        this.pageUpdate(this._state)
+        this.pageUpdate(this._state);
+        break;
+      case WHILE_MESSAGE_INPUTING:
+        this._state.messages.newMessageContent = action.newContent;
+        this.pageUpdate(this._state);
+        break;
+      case ADD_MESSAGE:
+        let newMessage = {
+          message: this._state.messages.newMessageContent,
+          id: this.getRandomId()
+        };
+        this._state.messages.MessagesBase.push(newMessage);
+        this._state.messages.newMessageContent = "";
+        this.pageUpdate(this._state);
         break;
       default:
         alert("Зовите программиста, что-то пошло не так");
-
     }
   },
   _state: {
@@ -135,14 +145,22 @@ let store = {
 
 //for IntelliSense
 const WHILE_POST_INPUTING = "WHILE_POST_INPUTING";
+const WHILE_MESSAGE_INPUTING = "WHILE_MESSAGE_INPUTING";
 const ADD_POST = "ADD_POST";
+const ADD_MESSAGE = "ADD_MESSAGE";
 
 //action creators
-export const postInputing = vnewContent => ({
+export const postInputing = newPostInput => ({
   type: WHILE_POST_INPUTING,
-  newContent: vnewContent
+  newContent: newPostInput
 });
-export const addPost = () => ({type: ADD_POST})
+export const messageInputing = newMessageInput => ({
+  type: WHILE_MESSAGE_INPUTING,
+  newContent: newMessageInput
+});
+
+export const addPost = () => ({ type: ADD_POST });
+export const addMessage = () => ({type: ADD_MESSAGE});
 
 export default store;
 window.store = store;
