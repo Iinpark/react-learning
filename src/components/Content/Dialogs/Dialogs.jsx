@@ -6,7 +6,7 @@ import {addMessage, messageInputting, postInputting} from "../../../Redux/State/
 
 const Dialogs = props => {
 
-  let DialogsElements = props.UsersBase.map(dialog => (
+  let DialogsElements = props.users.UsersBase.map(dialog => (
     <DialogItem name={dialog.user} id={dialog.id} />
   ));
   let MessagesElements = props.messages.MessagesBase.map(UD => (

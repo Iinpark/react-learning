@@ -24,6 +24,20 @@ let store = {
     this.pageUpdate(this._state);
   },
   _state: {
+    messages: {
+      newMessageContent: "",
+      MessagesBase: [
+        { id: 0, message: "Hi" },
+        { id: 1, message: "Yo" },
+        { id: 2, message: "In" },
+        { id: 3, message: "Elon" },
+        { id: 4, message: "We" },
+        { id: 5, message: "Trust" },
+        { id: 6, message: "Just" },
+        { id: 7, message: "read the" },
+        { id: 8, message: "instructions" }
+      ]
+    },
     posts: {
       PostsBase: [
         {
@@ -54,20 +68,6 @@ let store = {
         }
       ],
       newPostContent: ""
-    },
-    messages: {
-      newMessageContent: "",
-      MessagesBase: [
-        { id: 0, message: "Hi" },
-        { id: 1, message: "Yo" },
-        { id: 2, message: "In" },
-        { id: 3, message: "Elon" },
-        { id: 4, message: "We" },
-        { id: 5, message: "Trust" },
-        { id: 6, message: "Just" },
-        { id: 7, message: "read the" },
-        { id: 8, message: "instructions" }
-      ]
     },
     UsersBase: [
       {

@@ -1,16 +1,14 @@
-import { combineReducers, createStore } from "redux";
-import Posts_Reducer from "./Posts-Reducer";
+import Redux, { combineReducers, createStore } from "redux";
+import PostsReducer from "./PostsReducer";
+import MessagesReducer from "./MessagesReducer";
+import UsersReducer from "./Users-Reducer";
 
-
-let Reducers = combineReducers({
-   Posts_Reducer
+let reducers = combineReducers({
+  messages: MessagesReducer,
+  posts: PostsReducer,
+    users: UsersReducer
 });
-let Store = createStore(Reducers);
 
-let PageUpdate = () => {};
-export const Subscriber = callback => {
-    PageUpdate = callback;
-};
+let store = createStore(reducers);
 
-
-export default Store;
+export default store;

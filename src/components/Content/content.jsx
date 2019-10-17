@@ -13,7 +13,7 @@ const Content = props => {
         path="/Dialogs"
         render={() => (
           <Dialogs
-            UsersBase={props.UsersBase}
+            users={props.users}
             messages={props.messages}
             dispatch={props.dispatch}
           />
@@ -24,7 +24,7 @@ const Content = props => {
         render={() => (
           <Posts
             posts={props.posts}
-            UsersBase={props.UsersBase}
+            users={props.users}
             dispatch={props.dispatch}
           />
         )}
