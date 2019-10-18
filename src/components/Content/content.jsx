@@ -1,9 +1,9 @@
 import React from "react";
 import classes from "./content.module.css";
 import PageInfo from "./PageInfo/PageInfo";
-import Dialogs from "./Dialogs/Dialogs";
 import { Route } from "react-router-dom";
-import Posts from "./posts/Posts";
+import PostsContainer from "./posts/Posts-Container";
+import DialogsContainer from "./Dialogs/DialogsContainer";
 
 const Content = props => {
   return (
@@ -12,7 +12,7 @@ const Content = props => {
       <Route
         path="/Dialogs"
         render={() => (
-          <Dialogs
+          <DialogsContainer
             users={props.users}
             messages={props.messages}
             dispatch={props.dispatch}
@@ -22,7 +22,7 @@ const Content = props => {
       <Route
         path="/Feed"
         render={() => (
-          <Posts
+          <PostsContainer
             posts={props.posts}
             users={props.users}
             dispatch={props.dispatch}
