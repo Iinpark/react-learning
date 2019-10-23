@@ -9,28 +9,20 @@ const Content = props => {
   return (
     <div className={classes.cont}>
       <Route path="/PageInfo" render={() => <PageInfo />} />
-      <Route
-        path="/Dialogs"
-        render={() => (
-          <DialogsContainer
-            users={props.users}
-            messages={props.messages}
-            dispatch={props.dispatch}
-          />
-        )}
-      />
-      <Route
-        path="/Feed"
-        render={() => (
-          <PostsContainer
-            posts={props.posts}
-            users={props.users}
-            dispatch={props.dispatch}
-          />
-        )}
-      />
+      <Route path="/Dialogs" render={() => <DialogsContainer />} />
+      <Route path="/Feed" render={() => <PostsContainer />} />
     </div>
   );
 };
 
 export default Content;
+
+// dialogs props
+// users={props.users}
+// messages={props.messages}
+// dispatch={props.dispatch}
+
+//posts props
+// posts={props.posts}
+// users={props.users}
+// dispatch={props.dispatch}
