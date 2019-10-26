@@ -1,6 +1,6 @@
 import React from "react";
 import Posts from "./Posts";
-import Post from "./post";
+import Post from "./Bootstrap-Post";
 import { addPost, postInputting } from "../../../Redux/State/State";
 
 const PostsContainer = props => {

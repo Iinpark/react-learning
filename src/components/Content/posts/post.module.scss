@@ -13,21 +13,19 @@
   height: 60px;
   border-radius: 50%;
 }
-.autor{
+.autor {
   margin-left: 5px;
 }
 .feedback {
   margin: 5px;
   width: 300px;
   height: 20px;
-}
-.feedback span {
-}
-.feedback div {
-  fill: #1f1c1c;
-}
-.feedback div :hover {
-  fill: #ff0303;
+  div {
+    fill: #1f1c1c;
+    :hover {
+      fill: #ff0303;
+    }
+  }
 }
 .likeBtn {
   width: 20px;
@@ -35,11 +33,10 @@
 .commentBtn {
   width: 20px;
 }
-svg{
-   display: inline;
- }
-.likeBtn  .commentBtn{
-
+svg {
+  display: inline;
+}
+.likeBtn .commentBtn {
   display: inline;
   justify-content: space-between;
 }
