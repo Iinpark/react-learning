@@ -1,7 +1,7 @@
 import React from "react";
 import Posts from "./Posts";
-import { addPost, postInputting } from "../../../Redux/State/State";
-import { connect } from "react-redux";
+import {addPost, postInputting} from "../../../Redux/State/State";
+import {connect} from "react-redux";
 
 const mapStateToProps = state => {
   return {

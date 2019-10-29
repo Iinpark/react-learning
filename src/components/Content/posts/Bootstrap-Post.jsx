@@ -2,8 +2,7 @@ import React from "react";
 
 const Post = props => {
   return (
-    <div className="card gedf-card">
-
+    <div className="card gedf-card my-1">
       <div className="card-header text-dark">
         <div className="d-flex justify-content-between align-items-center">
           <div className="d-flex justify-content-between align-items-center">
@@ -13,7 +12,8 @@ const Post = props => {
                 src={props.avatar}
                 alt={props.user}
                 width="45"
-              />   {/*avatar*/}
+              />{" "}
+              {/*avatar*/}
             </div>
             <div className="ml-2">
               <div className="h5 m-0">{props.user}</div>
@@ -61,9 +61,7 @@ const Post = props => {
         {/*  </h5>*/}
         {/*</a>*/}
 
-        <p className="card-text text-dark">
-            {props.content}
-        </p>
+        <p className="card-text text-dark">{props.content}</p>
       </div>
       <div className="card-footer">
         <a href="#" className="card-link">

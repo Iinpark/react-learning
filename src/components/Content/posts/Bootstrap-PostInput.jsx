@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 
 const PostInput = props => {
   return (
-    <Card>
+    <Card className="my-1">
       <Card.Body>
         <Tabs defaultActiveKey="Make a publication">
           <Tab eventKey="Make a publication" title="Make a publication">
