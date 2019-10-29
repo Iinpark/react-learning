@@ -3,18 +3,17 @@ import store from "./Redux/Redux-Store";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { Provider } from "react-redux";
 
-function ReRender(yourState) {
+function ReRender(yourStore) {
   ReactDOM.render(
-    <App
-      state={yourState}
-      dispatch={store.dispatch.bind(store)}
-      store={store}
-    />,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.getElementById("root")
   );
 }
-
+console.log(store.dispatch);
 ReRender(store.getState());
 
 store.subscribe(() => {
@@ -26,3 +25,7 @@ store.subscribe(() => {
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// state={yourState}
+// dispatch={store.dispatch.bind(store)}
+// store={store}

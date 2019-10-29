@@ -81,19 +81,30 @@ let initialState = {
 
 const PostsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_POST:
+    case ADD_POST: {
+      let stateCopy = { ...state };
+      stateCopy.PostsBase = [...state.PostsBase];
+      stateCopy.UsersBase = { ...state.UsersBase };
       let NewPost = {
-        PostAvatar: state.UsersBase[0].avatar,
-        PostAuthor: state.UsersBase[0].user,
-        PostContent: state.newPostContent
+        PostAvatar: stateCopy.UsersBase[0].avatar,
+        PostAuthor: stateCopy.UsersBase[0].user,
+        PostContent: stateCopy.newPostContent
       };
-      state.PostsBase.push(NewPost);
-      state.newPostContent = "";
-      break;
-    case WHILE_POST_INPUTTING:
-      state.newPostContent = action.newContent;
-      break;
+      stateCopy.PostsBase.push(NewPost);
+      stateCopy.newPostContent = "";
+      console.log(stateCopy);
+      return stateCopy;
+    }
+    case WHILE_POST_INPUTTING: {
+      let stateCopy = { ...state };
+      stateCopy.newPostContent = state.newPostContent;
+      stateCopy.newPostContent = action.newContent;
+      console.log(stateCopy);
+      return stateCopy;
+    }
+    default:
+      return state;
   }
-  return state;
 };
+
 export default PostsReducer;

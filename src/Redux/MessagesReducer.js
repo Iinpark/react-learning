@@ -17,7 +17,6 @@ const initialState = {
 };
 
 const MessagesReducer = (state = initialState, action) => {
-  debugger;
   switch (action.type) {
     case WHILE_MESSAGE_INPUTTING:
       state.newMessageContent = action.newContent;
