@@ -1,6 +1,14 @@
 import React from "react";
 import styles from "./Posts.module.css";
+import Post from "./post";
 const Posts = props => {
+    let PostsElements = props.posts.PostsBase.map(PostsBase => (
+        <Post
+            avatar={PostsBase.PostAvatar}
+            user={PostsBase.PostAutor}
+            content={PostsBase.PostContent}
+        />
+    ));
   return (
     <div className={styles.wrapper}>
       <div className={styles.PostsWrapper}>
@@ -21,7 +29,7 @@ const Posts = props => {
             </div>
           </div>
         </div>
-        {props.PostsElements}
+        {PostsElements}
       </div>
     </div>
   );
